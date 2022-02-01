@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.Toolbar xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/toolbar"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:minHeight="?attr/actionBarSize"
+    android:background="?attr/colorPrimary"
+    android:theme="@style/ThemeOverlay.AppCompat.DayNight.ActionBar"
+    app:popupTheme="@style/ThemeOverlay.AppCompat.Light" >
+
+    <LinearLayout
+        android:padding="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:scaleType="centerCrop"
+                android:adjustViewBounds="false"
+                android:padding="10dp"
+                android:src="@mipmap/ic_restaurant"/>
+
+            <TextView
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                android:textSize="20sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="FriendlyEats"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:background="@color/white"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:layout_gravity="center"
+                android:layout_width="wrap_content"
+                android:src="@mipmap/ic_filter"
+                android:padding="5dp"
+                android:layout_height="wrap_content"/>
+            <LinearLayout
+                android:padding="5dp"
+                android:layout_width="match_parent"
+                android:orientation="vertical"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="20sp"
+                    android:text="All Restaurants"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="15sp"
+                    android:text="All foods"/>
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+
+
+</androidx.appcompat.widget.Toolbar>
