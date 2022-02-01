@@ -13,8 +13,8 @@
 
     <androidx.recyclerview.widget.RecyclerView
         app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
-        app:spanCount="1"
         android:id="@+id/rv_main"
+        app:spanCount="3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
 

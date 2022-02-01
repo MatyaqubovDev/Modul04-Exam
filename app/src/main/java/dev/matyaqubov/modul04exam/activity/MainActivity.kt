@@ -22,7 +22,22 @@ class MainActivity : AppCompatActivity() {
         recyclerView=findViewById(R.id.rv_main)
         prepareFoodList()
         recyclerViewAdapter= RecyclerViewAdapter(this,foods)
-        recyclerView.layoutManager=GridLayoutManager(this,1)
+        //recyclerView.layoutManager=GridLayoutManager(this,1)
+
+
+        recyclerView.addOnScrollListener(object : RecyclerView.OnScrollListener() {
+            override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
+                val gridLayoutManager = recyclerView.getLayoutManager() as GridLayoutManager
+                val totalItem = gridLayoutManager.itemCount
+                val lastVisible = gridLayoutManager.findLastVisibleItemPosition()
+                val endHasBeenReached = lastVisible + 5 >= totalItem
+                if (totalItem > 0 && endHasBeenReached) {
+                    loadMoreFoods()
+                    recyclerViewAdapter.notifyDataSetChanged();
+                }
+            }
+        })
+
         recyclerView.adapter=recyclerViewAdapter
     }
 
@@ -36,6 +51,11 @@ class MainActivity : AppCompatActivity() {
         foods.add(Food(R.drawable.gilly,"Italian Gilly","22$",3.5,"Italy * Italy"))
         foods.add(Food(R.drawable.jay_wennington,"Vashington Jay","16.5$",3.0,"USA * Vashington"))
 
+
+
+    }
+
+    private fun loadMoreFoods(){
         foods.add(Food(R.drawable.american_xotdog,"American Xotdog","12$",4.1,"America * Deli"))
         foods.add(Food(R.drawable.burger,"American burger","20$",3.5,"America * Choli"))
         foods.add(Food(R.drawable.casey_lee,"Britian Lee","15$",4.0,"London * Chapa"))
