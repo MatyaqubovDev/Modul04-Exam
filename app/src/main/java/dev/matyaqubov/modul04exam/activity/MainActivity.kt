@@ -2,6 +2,7 @@ package dev.matyaqubov.modul04exam.activity
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toast
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import dev.matyaqubov.modul04exam.R
@@ -32,6 +33,7 @@ class MainActivity : AppCompatActivity() {
                 val lastVisible = gridLayoutManager.findLastVisibleItemPosition()
                 val endHasBeenReached = lastVisible + 5 >= totalItem
                 if (totalItem > 0 && endHasBeenReached) {
+                    Toast.makeText(this@MainActivity, "Loading more ... ", Toast.LENGTH_SHORT).show()
                     loadMoreFoods()
                     recyclerViewAdapter.notifyDataSetChanged();
                 }
@@ -50,6 +52,9 @@ class MainActivity : AppCompatActivity() {
         foods.add(Food(R.drawable.egg,"Karvak eggs","5$",5.0,"Uzbekistan * Karvak"))
         foods.add(Food(R.drawable.gilly,"Italian Gilly","22$",3.5,"Italy * Italy"))
         foods.add(Food(R.drawable.jay_wennington,"Vashington Jay","16.5$",3.0,"USA * Vashington"))
+
+        foods.add(Food(R.drawable.american_xotdog,"American Xotdog","12$",4.1,"America * Deli"))
+        foods.add(Food(R.drawable.burger,"American burger","20$",3.5,"America * Choli"))
 
 
 
